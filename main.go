@@ -20,12 +20,21 @@ func main() {
 
 		switch choosedNum {
 		case 1:
-			addToDo(){
-				
-			}
-
+			addToDo()
+		case 2:
+			displayToDo()
+		case 3:
+			deleteToDo()
+		case 4:
+			editToDo()
+		case 5:
+			clearToDo()
+		case 6:
+			break		
+		default:
+			errorInput()
 		}
+		func addToDo(a string) ()
 
 	}
-
 }
