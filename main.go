@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 var (
@@ -31,10 +32,13 @@ func addToDo() {
 func displayToDo() {
 	tempLen := len(toDoSlice)
 	for i := 0; i < tempLen-1; i++ {
-		toDoSlice[i] += ","
+		if (strings.Contains(toDoSlice[i], ",")) == true {
+			break
+		} else {
+			toDoSlice[i] += ","
+		}
 	}
 	fmt.Println(toDoSlice)
-
 }
 
 func deleteToDo() {
