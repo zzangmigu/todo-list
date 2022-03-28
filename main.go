@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 )
 
 var (
@@ -23,22 +22,11 @@ func addToDo() {
 	stdin.Scan()
 	inputToDo = stdin.Text()
 	toDoSlice = append(toDoSlice, inputToDo)
-
-	fmt.Println(inputToDo)
-
-	fmt.Println("입력한 계획이 저장되었습니다")
+	fmt.Printf("입력한 계획 [%s]이/가 저장되었습니다\n", inputToDo)
 }
 
 func displayToDo() {
-	tempLen := len(toDoSlice)
-	for i := 0; i < tempLen-1; i++ {
-		if (strings.Contains(toDoSlice[i], ",")) == true {
-			break
-		} else {
-			toDoSlice[i] += ","
-		}
-	}
-	fmt.Println(toDoSlice)
+
 }
 
 func deleteToDo() {
@@ -46,16 +34,22 @@ func deleteToDo() {
 	stdin2 := bufio.NewScanner(os.Stdin)
 	stdin2.Scan()
 	inputToDo = stdin2.Text()
+	var toDoFound int
 	for i := range toDoSlice {
 		if toDoSlice[i] == inputToDo {
 			toDoSlice = append(toDoSlice[:i], toDoSlice[i+1:]...)
-			fmt.Println(toDoSlice)
+			toDoFound = 0
+			break
 		} else {
-			fmt.Println("해당 계획이 없습니다 메인으로 돌아갑니다")
 		}
 	}
+	if toDoFound != 0 {
+		fmt.Println("해당 계획이 없습니다 메인으로 돌아갑니다")
+	}
 }
+
 func editToDo() {
+	fmt.Println(toDoSlice)
 
 }
 
