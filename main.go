@@ -52,11 +52,9 @@ func deleteToDo() {
 	}
 }
 
-func editToDo() {
-
-}
-
 func clearToDo() {
+	toDoSlice = nil
+	fmt.Println("모든 계획이 삭제되었습니다.")
 
 }
 
@@ -70,9 +68,8 @@ T:
 		fmt.Println("0  1. Write ToDo     0")
 		fmt.Println("0  2. Display ToDo   0")
 		fmt.Println("0  3. Delete ToDo    0")
-		fmt.Println("0  4. Edit ToDO      0")
-		fmt.Println("0  5. Clear ToDo     0")
-		fmt.Println("0  6. Close Menu     0")
+		fmt.Println("0  4. Clear ToDo     0")
+		fmt.Println("0  5. Close Menu     0")
 		fmt.Println("0000000000000000000000")
 
 		fmt.Scanln(&choosedNum)
@@ -84,10 +81,8 @@ T:
 		case 3:
 			deleteToDo()
 		case 4:
-			editToDo()
-		case 5:
 			clearToDo()
-		case 6:
+		case 5:
 			break T
 		default:
 			fmt.Println("올바른 메뉴 번호를 입력해 주세요 ")
